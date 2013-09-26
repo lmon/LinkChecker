@@ -20,7 +20,7 @@
 		private $linkvalues;
 		private $passes = 0;
 		private $fails = 0;
-		private $filename = 'story-markup-large.html'; // run on story-markup-large to see it work on 104000 links
+		private $filename = 'story-markup.html'; // run on story-markup-large to see it work on 104000 links
 		
 		function __construct(){
 			return true;
@@ -89,13 +89,20 @@
 					# 2 kinds of valid links
 					# 1 External (http|https|ftp|mailto) , requires " :// "
 					# 2 internal (begin with a / or ./ or ../ or with a alpahnumeric )
+					/*
+					* finds valid links
 					if( preg_match('/(^(http|https|ftp|mailto):\/\/)|^(#|..\/|\/|.\/)/si', $link)){
-						$this->passes++ ;
-						echo "Pass: ";
-					}else{
-						$this->fails++;
+					 */
+					/*
+					* finds invalid links
+					*/
+										if( preg_match('/^(?!(http:\/\/)|(https:\/\/)|(mailto:\/\/)|(ftp:\/\/)|#|..\/|\/|.\/)/si', $link)){
+						$this->fails++ ;
 						echo "Fail: ";
-					} ; 				
+					}else{
+						$this->passes++;
+						echo "Pass: ";
+					}		
 					echo "$link \n";
 				}
 				$this->summary();
