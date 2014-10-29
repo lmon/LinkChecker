@@ -14,6 +14,8 @@ $link = new LinkChecker();
 	$link->extractAndValidate();
  */
 
+print "\n IN THE BEGINNING \n";
+
 /* get full report of valid & invalid */
 # does it construct
 if(!$link){
